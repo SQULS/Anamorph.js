@@ -25,5 +25,9 @@ To use a video from YouTube pass the embeddable url in the first parameter.
 ```
 anamorph("https://www.youtube.com/embed/[VIDEO_ID]",'bw')
 ```
+As some mobile devices and tablets do not allow autoplaying of video you can pass a back up still image to Anamorph as a fallback. Anamoprh will detect what type of device you are using. Just include the path to this image as a third parameter when calling the function. 
+```
+anamorph("test.mp4",0.5,"test.jpg");
+```
 ## License
 This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details
