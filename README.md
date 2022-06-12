@@ -30,4 +30,4 @@ As some mobile devices and tablets do not allow autoplaying of video you can pas
 anamorph("test.mp4",0.5,"test.jpg");
 ```
 ## License
-This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details
+This project is unlicensed under The Unlicense - see the [LICENSE](LICENSE) file for details
