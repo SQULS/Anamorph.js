@@ -1,12 +1,8 @@
 # Anamorph.js
-Small JavaScript plugin to simplify the inclusion of full screen responsive images and video on your website.
-## Getting Started
-You will require jQuery either installed locally or referenced remotely.
-For example:
-```
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-```
+JavaScript plugin to simplify the inclusion of full screen responsive images and video on your website.
+
 ## Usage
+
 Include a reference to Anamorph.js in your index page.
 ```
 <script src="anamorph.js"></script>
@@ -30,4 +26,4 @@ As some mobile devices and tablets do not allow autoplaying of video you can pas
 anamorph("test.mp4",0.5,"test.jpg");
 ```
 ## License
-This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE](LICENSE) file for details
+This project is Unlicensed - see the [LICENSE](LICENSE) file for details.
