@@ -11,7 +11,7 @@ function fadeOutEffect(target) {
             target.remove();
         }
     }, 1);
-}
+};
 
 function anamorph(an_media, an_overlay, an_backup) {
 
