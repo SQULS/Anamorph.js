@@ -13,12 +13,12 @@ Or the minimised verion.
 ```
 Anamorph is use be calling the ```anamorph()``` method and passing an object containing the following properties.
 
-* _media_: string, url for image or video, or pass YouTube url in ```https://www.youtube.com/embed/[VIDEO_ID]``` format
-* _overlay_: float/string (from 0 - 1), An opacity level for the overlay or 'bw' for black and white filter
+* _media_: string, Url for image or video, or pass a YouTube url in ```https://www.youtube.com/embed/[VIDEO_ID]``` format
+* _overlay_: float/string (from 0 - 1), An opacity level for the overlay or 'bw' for black & white filter
 * _random_: boolean, If set start point will be randomised
 * _start_: (required if random is true) int, Start point in seconds
 * _end_: (required if random is true) int, End point in seconds
-* _backup_: string, url for back up image
+* _backup_: string, Url for back up image
 
 For example:
 
@@ -29,14 +29,14 @@ let properties = {
     random: true,
     start: 100,
     end: 300,
-    backup: 'flower.jpg'
+    backup: 'cloud.jpg'
 }
         
 anamorph(properties)
 ```
-File formats supported are .jpg, .gif & .png for images and .mp4 for video.
+File formats supported are ._jpg_, ._gif_ & ._png_ for images and ._mp4_ for video.
 
-As some mobile devices and tablets do not allow autoplaying of video it is always prudent to pass a backup image. Anamoprh will detect what type of device you are using.
+As some mobile devices and tablets do not allow autoplaying of video it is always prudent to pass a backup image. Anamorph will detect what type of device you are using.
 
 ## License
 This project is Unlicensed - see the [LICENSE](LICENSE) file for details.
