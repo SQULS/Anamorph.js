@@ -1,4 +1,4 @@
-let an_media, an_overlay, an_over
+let an_over
 const w = window.innerWidth * 1.5;
 const h = window.innerHeight * 1.5;
 
@@ -11,9 +11,26 @@ function fadeOutEffect(target) {
             target.remove();
         }
     }, 1);
-};
+}
 
-function anamorph(an_media, an_overlay, an_backup) {
+function anamorph(props) {
+
+    let an_media = props.media;
+    let an_overlay = props.overlay;
+    let an_backup = props.backup;
+    let an_end = props.end;
+    let an_start = !props.random ? props.start : Math.floor(Math.random() * an_end) + props.start;
+
+    function fadeOutEffect(target) {
+        let fadeEffect = setInterval(function () {
+            if (target.style.opacity >= 0) {
+                target.style.opacity -= 0.1;
+            } else {
+                clearInterval(fadeEffect);
+                target.remove();
+            }
+        }, 1);
+    }
 
     const source = 'https://www.youtube.com/iframe_api';
     let script = document.createElement('script');
@@ -95,7 +112,8 @@ function anamorph(an_media, an_overlay, an_backup) {
                 },
                 events: {
                     onReady: function (e) {
-                        e.target.mute()
+                        e.target.mute();
+                        player.seekTo(an_start);
                     },
                     onStateChange: function (e) {
                         if (e.data === YT.PlayerState.ENDED) {
@@ -104,6 +122,14 @@ function anamorph(an_media, an_overlay, an_backup) {
                         if (e.data === YT.PlayerState.PLAYING) {
                             fadeOutEffect(an_over)
                         }
+
+                        let checkTime = setInterval(function () {
+
+                            if (player.getCurrentTime() >= an_end) {
+                                player.seekTo(an_start)
+                                clearInterval(checkTime);
+                            };
+                        }, 500);
                     }
                 }
             })
@@ -128,7 +154,7 @@ function anamorph(an_media, an_overlay, an_backup) {
             an_img.setAttribute('style', an_style);
             let img = document.createElement('img');
             img.setAttribute('style', an_style);
-            if (an_media_url[an_length] == 'jpg' | 'gif' | 'png') {
+            if (an_media_url[an_length] == 'jpg' || 'gif' || 'png') {
                 an_img.id = 'an_media';
                 img.src = an_media;
             } else if (an_media_url[an_length] == 'mp4' || an_media.indexOf('youtube.com' || 'youtu.be') !== -1 && isMobile == true) {

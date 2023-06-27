@@ -11,19 +11,32 @@ Or the minimised verion.
 ```
 <script src="anamorph.min.js"></script>
 ```
-Call the Anamorph function including the path to your image or video, and an opacity level for the overlay (from 0 - 1). Alternatively, pass 'bw' in the second parameter to turn the background black and white.
+Anamorph is use be calling the ```anamorph()``` method and passing an object containing the following properties.
+
+* _media_: string, url for image or video, or pass YouTube url in ```https://www.youtube.com/embed/[VIDEO_ID]``` format
+* _overlay_: float/string (from 0 - 1), An opacity level for the overlay or 'bw' for black and white filter
+* _random_: boolean, If set start point will be randomised
+* _start_: (required if random is true) int, Start point in seconds
+* _end_: (required if random is true) int, End point in seconds
+* _backup_: string, url for back up image
+
 For example:
+
 ```
-anamorph("test.jpg",'0.5')
+let properties = {
+    media: 'https://www.youtube.com/embed/hpRQo0yD-FU',
+    overlay: 0.5,
+    random: true,
+    start: 100,
+    end: 300,
+    backup: 'flower.jpg'
+}
+        
+anamorph(properties)
 ```
 File formats supported are .jpg, .gif & .png for images and .mp4 for video.
-To use a video from YouTube pass the embeddable url in the first parameter.
-```
-anamorph("https://www.youtube.com/embed/[VIDEO_ID]",'bw')
-```
-As some mobile devices and tablets do not allow autoplaying of video you can pass a back up still image to Anamorph as a fallback. Anamoprh will detect what type of device you are using. Just include the path to this image as a third parameter when calling the function. 
-```
-anamorph("test.mp4",0.5,"test.jpg");
-```
+
+As some mobile devices and tablets do not allow autoplaying of video it is always prudent to pass a backup image. Anamoprh will detect what type of device you are using.
+
 ## License
 This project is Unlicensed - see the [LICENSE](LICENSE) file for details.
